@@ -1,6 +1,6 @@
-crewai
-crewai_tools
-langchain_ollama
+# crewai
+# crewai_tools
+requests
 fastapi
 uvicorn[standard]
 python-dotenv
