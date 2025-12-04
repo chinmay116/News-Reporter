@@ -62,18 +62,17 @@ def call_groq(prompt: str) -> str:
     return j["choices"][0]["message"]["content"]
 
 
+
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
 @app.get("/")
 async def root():
     return {
         "message": "News Reporter API is running",
         "endpoints": ["/health", "/run-news"],
     }
-
-
-@app.get("/health")
-async def health():
-    return {"status": "ok"}
-
 
 @app.post("/run-news", response_model=RunNewsResponse)
 async def run_news(req: RunNewsRequest):
