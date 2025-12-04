@@ -4,6 +4,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
+
 const App = () => {
   const [topic, setTopic] = useState('')
   const [loading, setLoading] = useState(false)
@@ -25,7 +28,7 @@ const App = () => {
     setLoading(true)
     try {
       // Using /api here so Vite proxy sends it to FastAPI
-      const response = await axios.post('http://localhost:8000/run-news', { topic: trimmed })
+      const response = await axios.post(`${API_BASE}/run-news`, { topic: trimmed });
       setResult(response.data.result || '')
       setOutputFile(response.data.output_file || '')
     } catch (err) {
