@@ -12,8 +12,7 @@ app = FastAPI(title="News Reporter API (Cloud)")
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    # add your Vercel domain after first deploy:
-    # "https://news-reporter-frontend.vercel.app",
+    https://news-reporter-one.vercel.app/
 ]
 
 app.add_middleware(
@@ -61,6 +60,14 @@ def call_groq(prompt: str) -> str:
 
     j = resp.json()
     return j["choices"][0]["message"]["content"]
+
+
+@app.get("/")
+async def root():
+    return {
+        "message": "News Reporter API is running",
+        "endpoints": ["/health", "/run-news"],
+    }
 
 
 @app.get("/health")

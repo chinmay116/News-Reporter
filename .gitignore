@@ -20,5 +20,4 @@ Thumbs.db
 node_modules/
 __pycache__/
 new-blog-post.md
-package-lock.json
-package.json
+
