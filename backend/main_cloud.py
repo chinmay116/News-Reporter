@@ -12,7 +12,7 @@ app = FastAPI(title="News Reporter API (Cloud)")
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://news-reporter-one.vercel.app/",
+    "https://news-reporter-one.vercel.app",
 ]
 
 app.add_middleware(
